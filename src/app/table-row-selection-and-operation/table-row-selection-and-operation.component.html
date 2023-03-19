@@ -1,0 +1,31 @@
+<div class="send-request">
+  <button nz-button nzType="primary" [disabled]="setOfCheckedId.size === 0" [nzLoading]="loading"
+    (click)="sendRequest()">
+    Send Request
+  </button>
+  <span>Selected {{ setOfCheckedId.size }} items</span>
+</div>
+<!-- #rowSelectionTable là một Angular Template Reference Variable được sử dụng để tham chiếu đến nz-table trong template HTML của bạn. -->
+<!-- mặc định của nzShowPagination và nzShowSizeChanger là true nên ta được phân trang và số size item hiển thị nếu ta không muốn phân trang thì ta sữa nzShowPagination = false -->
+<!-- còn nzData thì là dữ liệu để render ra  -->
+<!-- nói chung là mặc định nó sẽ là 10 row trên 1 bảng nên ta muốn sửa lại chỉ 8 hàng thì sử dụng [nzPageSize]="8" còn phân trang thì nó sẽ tự phân trang cho chúng ta -->
+<nz-table #rowSelectionTable nzShowPagination nzShowSizeChanger [nzPageSize]="8" [nzData]="listOfData"
+  (nzCurrentPageDataChange)="onCurrentPageDataChange($event)">
+  <thead>
+    <tr>
+      <th [nzChecked]="checked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="onAllChecked($event)"></th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of rowSelectionTable.data">
+      <td [nzChecked]="setOfCheckedId.has(data.id)" [nzDisabled]="data.disabled"
+        (nzCheckedChange)="onItemChecked(data.id, $event)"></td>
+      <td>{{ data.name }}</td>
+      <td>{{ data.age }}</td>
+      <td>{{ data.address }}</td>
+    </tr>
+  </tbody>
+</nz-table>
