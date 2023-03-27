@@ -1,0 +1,6 @@
+/*  Giúp căn giữa cột cho dễ nhìn */
+.centered-column {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}

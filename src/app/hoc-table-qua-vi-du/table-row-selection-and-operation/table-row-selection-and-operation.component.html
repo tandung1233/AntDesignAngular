@@ -9,7 +9,7 @@
 <!-- mặc định của nzShowPagination và nzShowSizeChanger là true nên ta được phân trang và số size item hiển thị nếu ta không muốn phân trang thì ta sữa nzShowPagination = false -->
 <!-- còn nzData thì là dữ liệu để render ra  -->
 <!-- nói chung là mặc định nó sẽ là 10 row trên 1 bảng nên ta muốn sửa lại chỉ 8 hàng thì sử dụng [nzPageSize]="8" còn phân trang thì nó sẽ tự phân trang cho chúng ta -->
-<nz-table #rowSelectionTable nzShowPagination nzShowSizeChanger [nzPageSize]="8" [nzData]="listOfData"
+<nz-table #rowSelectionTable nzShowPagination nzShowSizeChanger [nzPageSize]="8" [nzData]="listOfData" 
   (nzCurrentPageDataChange)="onCurrentPageDataChange($event)">
   <thead>
     <tr>

@@ -1,0 +1,16 @@
+<nz-table #table [nzData]="data">
+  <thead>
+    <tr>
+      <th nzAlign="left" nzWidth="100px">ID</th>
+      <th nzAlign="left" [nzSortFn]="sortByName">Name</th>
+      <th nzAlign="right" [nzSortFn]="sortByAge">Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of table.data">
+      <td nzAlign="left">{{ item.id }}</td>
+      <td nzAlign="left">{{ item.name }}</td>
+      <td nzAlign="right">{{ item.age }}</td>
+    </tr>
+  </tbody>
+</nz-table>

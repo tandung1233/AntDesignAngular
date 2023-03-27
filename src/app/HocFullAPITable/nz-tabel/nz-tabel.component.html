@@ -1,0 +1,39 @@
+<!-- Gọi hàm này để phân trang trở về lại trang 1  -->
+<button nz-button nzType="primary" (click)="reset()">
+  Reload Table
+</button>
+<br>
+<nz-table #itemTable [nzData]="data.items" [nzTotal]="data.totalElements" [nzFrontPagination]="false"
+  [nzPageSize]="pageSize" [nzPageIndex]="pageIndex" [nzLoading]="isLoadingData"
+  (nzQueryParams)="onQueryParamsChange($event)">
+  pageIndex: number;
+  pageSize: number;
+  <!-- event kia là sự kiện (output) khi mình truyền lên cái dữ liệu event sẽ bao gồm
+  export interface NzTableQueryParams {
+    pageIndex: number;
+    pageSize: number;
+    sort: Array<{
+        key: string;
+        value: NzTableSortOrder;
+    }>;
+    filter: Array<{
+        key: string;
+        value: NzTableFilterValue;
+    }>;
+}
+  khi bên file ts mình nhận dữ liệu event này mình sẽ có các giá trị này $event đơn giản là cái mình tạo ra,
+  nếu mình không tạo ra cho cái $event kia thì mặc định nó sẽ undefined thôi mà các giá trị pageIndex mình đã truyền vào
+  nz-table rồi nên mặc định nó chuyển qua file ts nó sẽ nhận được và mình lấy xong reset lại trang thôi không hiểu thì tìm hiểu 
+  video input/output này https://www.youtube.com/watch?v=8vKPDQTVoxg
+  -->
+  <thead>
+    <tr>
+      <th class="centered-column">Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of itemTable.data">
+      <td class="centered-column">{{ item.name }}</td>
+    </tr>
+  </tbody>
+</nz-table>

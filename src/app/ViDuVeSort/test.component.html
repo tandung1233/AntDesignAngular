@@ -1,0 +1,17 @@
+<nz-table #filterTable [nzData]="listOfData" nzTableLayout="fixed">
+  <thead>
+    <!-- nzSortFn truyền vào cái hàm mà mình mong muôn sort -->
+    <!-- column.sortDirections là những cái mà mình muốn sọt ví dụ chỉ muốn lên hay chỉ muốn xuống hay không muốn sort  -->
+    <tr>
+      <th *ngFor="let column of listOfColumns" [nzSortFn]="column.sortFn" [nzSortDirections]="column.sortDirections">
+        {{ column.name }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of filterTable.data">
+      <td>{{ data.name }}</td>
+      <td>{{ data.age }}</td>
+    </tr>
+  </tbody>
+</nz-table>

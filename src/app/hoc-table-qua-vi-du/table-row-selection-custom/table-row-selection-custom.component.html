@@ -1,7 +1,7 @@
-<nz-table #rowSelectionTable nzShowSizeChanger [nzData]="listOfData"
+<nz-table #rowSelectionTable nzShowSizeChanger [nzData]="listOfData" 
   (nzCurrentPageDataChange)="onCurrentPageDataChange($event)">
   <thead>
-    <pre>{{listOfSelection| json}}</pre>
+    <!-- <pre>{{listOfSelection| json}}</pre> -->
     <tr>
       <th [nzSelections]="listOfSelection" [(nzChecked)]="checked" [nzIndeterminate]="indeterminate"
         (nzCheckedChange)="onAllChecked($event)"></th>
